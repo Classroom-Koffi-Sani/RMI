@@ -21,6 +21,11 @@ javac *java
 rmic BashoServeur
 ```
 - [x] Vérifier que le fichier stub est bien créé
+- [x] Déplacer les fichiers client dans le dossier client :
+```bash
+mv BashoServeur_Stub.class client/BashoServeur_Stub.class
+cp DoueDeParole.class client/DoueDeParole.class
+```
 - [x] Démarrer le serveur en arrière plan :
 ```bash
 rmiregistry &
@@ -29,8 +34,8 @@ rmiregistry &
 ```bash
 java BashoServeur
 ```
-- [x] Sur une autre machine (en ayant adapté l'adresse IP du serveur) ou une autre console, lancer le client :
+- [x] Sur une autre machine (en ayant adapté l'adresse IP du serveur) ou une autre console, lancer le client (dans le dossier client) :
 ```bash
 java BashoClient
 ```
-- [x] Vérifier que l'appel de la méthode `parler` se fait avec succès sur la représentation locale de `DoueDeParole`.
+- [x] Vérifier que l'appel de la méthode `parler()` se fait avec succès sur la représentation locale de `DoueDeParole`.
