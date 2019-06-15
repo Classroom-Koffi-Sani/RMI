@@ -4,7 +4,8 @@ public class BashoClient {
     public static void main(String args[]) {
         try{
             System.setProperty("java.security.policy", "/home/koffisani/Documents/RMI/security");
-            System.setSecurityManager(new RMISecurityManager());
+            if (System.getSecurityManager() == null)
+                System.setSecurityManager(new RMISecurityManager());
         } catch (Exception e) {
             System.out.println("Security Exception " + e);
         }

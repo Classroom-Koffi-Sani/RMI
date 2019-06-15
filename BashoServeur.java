@@ -4,6 +4,8 @@ import java.net.*;
 
 public class BashoServeur extends UnicastRemoteObject
 implements DoueDeParole {
+    private static final long serialVersionUID = 1L;
+
     public BashoServeur() throws RemoteException {
         super();
     }
@@ -18,7 +20,8 @@ implements DoueDeParole {
     public static void main(String args[]) {
         try {
             System.setProperty("java.security.policy", "/home/koffisani/Documents/RMI/security");
-            System.setSecurityManager(new RMISecurityManager());
+            if (System.getSecurityManager() == null)
+                System.setSecurityManager(new RMISecurityManager());
             BashoServeur b = new BashoServeur();
             Naming.rebind("MatsuoBasho", b);
             System.out.println("Serveur BahoServeur pret.");
